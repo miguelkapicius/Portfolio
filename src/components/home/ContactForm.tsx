@@ -49,6 +49,7 @@ export function ContactForm() {
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}
                     action="https://formspree.io/f/mkgwyvae"
+                    method="POST"
                     className="w-2/3 space-y-6"
                 >
                     <FormField
