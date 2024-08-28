@@ -52,7 +52,8 @@ export function Header() {
                             <NavigationMenuContent>
                                 <ul className="grid grid-cols-2 gap-3 p-4 md:w-[300px] lg:w-[500px]">
                                     <ListItem
-                                        href="/contact"
+                                        target="_blank"
+                                        href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJqTgCgLhcmPWDQbjRVCswHJshZqXLDKZGFRhvxnjCtVQFGSMcFSVqVcGZXljXJxFCsmXJV"
                                         title="Envie uma mensagem"
                                     >
                                         miguelkapicius@gmail.com

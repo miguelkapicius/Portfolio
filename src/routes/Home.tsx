@@ -29,7 +29,7 @@ export function Home() {
                         className="w-full"
                         asChild
                     >
-                        <Link to="/contact" className="flex items-center gap-2">
+                        <Link target="_blank" to="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJqTgCgLhcmPWDQbjRVCswHJshZqXLDKZGFRhvxnjCtVQFGSMcFSVqVcGZXljXJxFCsmXJV" className="flex items-center gap-2">
                             <span>Mensagem</span> <Mails className="size-4" />
                         </Link>
                     </Button>

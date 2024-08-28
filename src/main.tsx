@@ -5,7 +5,6 @@ import "./globals.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home } from "./routes/Home.tsx";
 import { ThemeProvider } from "./components/theme-provider.tsx";
-import { ContactForm } from "./components/home/ContactForm.tsx";
 
 const router = createBrowserRouter([
     {
@@ -16,10 +15,6 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home />,
             },
-            {
-                path: "/contact",
-                element: <ContactForm />
-            }
         ],
     },
 ]);
