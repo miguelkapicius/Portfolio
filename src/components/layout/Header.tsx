@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import {
     NavigationMenu,
@@ -17,10 +15,14 @@ import { Download } from "lucide-react";
 
 export function Header() {
     return (
-        <header className="fixed bg-background/95 top-0 py-4 w-full gap-2 z-50">
-            <div className="max-w-5xl mx-auto flex items-center justify-between">
+        <header className="fixed bg-background/95 top-0 w-full gap-2 z-50">
+            <div className="w-full md:max-w-5xl mx-auto py-4 flex items-center justify-center md:justify-between">
                 <NavigationMenu>
-                    <Link to={"/"} id="logo" className="text-2xl px-4">
+                    <Link
+                        to={"/"}
+                        id="logo"
+                        className="hidden md:inline-block text-2xl px-4"
+                    >
                         MK.
                     </Link>
                     <NavigationMenuList>
@@ -28,20 +30,29 @@ export function Header() {
                             <NavigationMenuTrigger>Sobre</NavigationMenuTrigger>
                             <NavigationMenuContent>
                                 <ul className="grid gap-3 p-4 md:w-[200px] lg:w-[300px]">
-                                    <ListItem href="/about" title="Sobre Mim">
-                                        Conheça um pouco mais de mim e do que eu
-                                        faço.
-                                    </ListItem>
-                                    <ListItem href="/projects" title="Projetos">
-                                        Veja os projetos que venho
-                                        desenvolvendo.
-                                    </ListItem>
-                                    <ListItem
-                                        href="/docs/primitives/typography"
-                                        title="Artigos"
-                                    >
-                                        Veja um pouco do que estou estudando.
-                                    </ListItem>
+                                    <Link to={"/"}>
+                                        <ListItem title="Home">
+                                            Voltar para o início
+                                        </ListItem>
+                                    </Link>
+                                    <Link to={"/about"}>
+                                        <ListItem title="Sobre Mim">
+                                            Conheça um pouco mais de mim e do
+                                            que eu faço.
+                                        </ListItem>
+                                    </Link>
+                                    <Link to={"/projects"}>
+                                        <ListItem title="Projetos">
+                                            Veja os projetos que venho
+                                            desenvolvendo.
+                                        </ListItem>
+                                    </Link>
+                                    <Link to={"/articles"}>
+                                        <ListItem title="Artigos">
+                                            Veja um pouco do que estou
+                                            estudando.
+                                        </ListItem>
+                                    </Link>
                                 </ul>
                             </NavigationMenuContent>
                         </NavigationMenuItem>
@@ -60,7 +71,7 @@ export function Header() {
                                     </ListItem>
                                     <ListItem
                                         target="_blank"
-                                        href="www.linkedin.com/in/miguelkapicius"
+                                        href="https://www.linkedin.com/in/miguelkapicius"
                                         title="Meu LinkedIn"
                                     >
                                         linkedin.com/in/miguelkapicius
@@ -84,7 +95,9 @@ export function Header() {
                         </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>
-                <ModeToggle />
+                <div className="hidden md:inline-block">
+                    <ModeToggle />
+                </div>
             </div>
         </header>
     );

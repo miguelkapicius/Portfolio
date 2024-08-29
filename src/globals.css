@@ -72,3 +72,19 @@
         font-family: "Nabla", system-ui;
     }
 }
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color: hsl(0 0% 9%);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: hsl(0 0% 96.1%);
+    border-radius: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 85;
+    }
+}
