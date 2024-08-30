@@ -57,29 +57,26 @@ export function ArticleCard({ name, id, summary, badges }: ArticleCardProps) {
     return (
         <Card className="w-full flex gap-2">
             <div className="space-y-2">
-                <CardHeader className="space-y-4">
-                    <div className="flex justify-between">
-                        <CardTitle className="text-xl">{name}</CardTitle>
-                        <div className="flex gap-2 flex-wrap">
-                            {badges.map((badge) => (
-                                <Badge variant="secondary">{badge}</Badge>
-                            ))}
-                        </div>
-                    </div>
-
+                <CardHeader className="space-y-4 h-max">
+                    <CardTitle className="text-lg">{name}</CardTitle>
                     <CardDescription className="max-h-20 overflow-hidden">
                         {summary}
                     </CardDescription>
                 </CardHeader>
-                <CardFooter className="flex gap-4">
-                    <Button>
-                        <Link
-                            className="flex gap-2 items-center"
-                            to={`/articles/${id}`}
-                        >
+                <CardFooter className="flex gap-4 items-center justify-between">
+                    <Link
+                        className="flex size-full w-max gap-2 items-center"
+                        to={`/articles/${id}`}
+                    >
+                        <Button>
                             Ler mais <ArrowUpRight className="size-4" />
-                        </Link>
-                    </Button>
+                        </Button>
+                    </Link>
+                    <div className="flex gap-2 flex-wrap">
+                        {badges.map((badge) => (
+                            <Badge variant="secondary">{badge}</Badge>
+                        ))}
+                    </div>
                 </CardFooter>
             </div>
         </Card>

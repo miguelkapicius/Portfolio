@@ -14,11 +14,12 @@ export function ArticlePage() {
                         <Badge variant="secondary">{category}</Badge>
                     ))}
                     <span className="text-sm text-muted-foreground">
-                    {article?.date && new Intl.DateTimeFormat('pt-BR', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric',
-                        }).format(new Date(`${article.date}T00:00:00`))}
+                        {article?.date &&
+                            new Intl.DateTimeFormat("pt-BR", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                            }).format(new Date(`${article.date}T00:00:00`))}
                     </span>
                 </div>
                 <h3 className="text-3xl">{article?.title}</h3>
@@ -31,10 +32,12 @@ export function ArticlePage() {
                     />
                 )}
             </header>
-            <main className="space-y-4">
-                {article?.content.map((p) => (
-                    <p>{p}</p>
-                ))}
+            <main>
+                <article className="space-y-4">
+                    {article?.content.map((p) => (
+                        <p>{p}</p>
+                    ))}
+                </article>
             </main>
         </>
     );
