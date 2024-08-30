@@ -9,7 +9,7 @@ export function ArticlePage() {
     return (
         <>
             <header className="space-y-6 mb-8 text-center">
-                <div className="flex items-center justify-center gap-2">
+                <div className="flex flex-wrap items-center justify-center gap-2">
                     {article?.badges.map((category) => (
                         <Badge variant="secondary">{category}</Badge>
                     ))}
