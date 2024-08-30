@@ -53,7 +53,7 @@ export function Projects() {
             desc: "Website desenvolvido para clínica odontológica AMI Especialidades & Ensino",
             stack: ["JavaScript", "React", "Tailwind", "Vite"],
             deploy_url:
-                "https://ami-miguel-kapicius-caires-projects.vercel.app/",
+                "https://amiespecialidades.com/",
         },
         {
             name: "Global Solution Blue Future | Landing Page",

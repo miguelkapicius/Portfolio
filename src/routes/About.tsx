@@ -35,7 +35,7 @@ export function About() {
                             .
                         </p>
                         <p>
-                            Sou desenvolvedor Front-end com em média{" "}
+                            Sou desenvolvedor Front-end com{" "}
                             <strong className="text-popover-foreground ">
                                 {xp} anos de experiência
                             </strong>
