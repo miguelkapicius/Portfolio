@@ -23,7 +23,7 @@ export const articles: Article[] = [
         content: ["Este artigo", "Banana"],
         summary:
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint fugiat voluptatem adipisci, optio inventore excepturi nemo? Voluptates vel, quibusdam, impedit explicabo totam obcaecati eos necessitatibus debitis perferendis, ex repellendus itaque!",
-        badges: ["news"],
+        badges: ["news", "banana"],
     },
     {
         slug: "2",

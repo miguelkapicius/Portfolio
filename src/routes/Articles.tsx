@@ -1,10 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+    Card,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { articles } from "@/articlesData";
+import { Badge } from "@/components/ui/badge";
 
 export function Articles() {
     const [searchArticle, setSearchArticle] = useState<string>("");
@@ -31,6 +38,7 @@ export function Articles() {
                             name={article.title}
                             summary={article.summary}
                             id={article.slug}
+                            badges={article.badges}
                         />
                     ))}
             </ul>
@@ -42,15 +50,26 @@ interface ArticleCardProps {
     name: string;
     id: string;
     summary: string;
+    badges: string[];
 }
 
-export function ArticleCard({ name, id, summary }: ArticleCardProps) {
+export function ArticleCard({ name, id, summary, badges }: ArticleCardProps) {
     return (
         <Card className="w-full flex gap-2">
             <div className="space-y-2">
-                <CardHeader>
-                    <CardTitle className="text-xl">{name}</CardTitle>
-                    <CardDescription className="max-h-20 overflow-hidden">{summary}</CardDescription>
+                <CardHeader className="space-y-4">
+                    <div className="flex justify-between">
+                        <CardTitle className="text-xl">{name}</CardTitle>
+                        <div className="flex gap-2 flex-wrap">
+                            {badges.map((badge) => (
+                                <Badge variant="secondary">{badge}</Badge>
+                            ))}
+                        </div>
+                    </div>
+
+                    <CardDescription className="max-h-20 overflow-hidden">
+                        {summary}
+                    </CardDescription>
                 </CardHeader>
                 <CardFooter className="flex gap-4">
                     <Button>

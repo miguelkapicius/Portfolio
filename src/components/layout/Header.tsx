@@ -15,7 +15,7 @@ import { Download } from "lucide-react";
 
 export function Header() {
     return (
-        <header className="fixed bg-background/95 top-0 w-full gap-2 z-50">
+        <header className="fixed bg-background/95 top-0 w-full flex justify-center items-center gap-2 z-50">
             <div className="w-full md:max-w-5xl mx-auto py-4 flex items-center justify-center md:justify-between">
                 <NavigationMenu>
                     <Link
