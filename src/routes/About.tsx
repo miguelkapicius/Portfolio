@@ -19,6 +19,7 @@ export function About() {
                 <img
                     className="rounded lg:w-1/3 object-cover"
                     src={euImage}
+                    draggable="false"
                     alt="Miguel Kapicius"
                 />
                 <div className="space-y-12 lg:w-2/3">

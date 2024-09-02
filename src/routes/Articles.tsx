@@ -26,7 +26,7 @@ export function Articles() {
                 />
             </div>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {articles
+                {articles.length > 1 ? articles
                     .filter((article) =>
                         article.title
                             .toLowerCase()
@@ -40,7 +40,9 @@ export function Articles() {
                             id={article.slug}
                             badges={article.badges}
                         />
-                    ))}
+                    )) : (
+                        <p>Ainda não há artigos disponíveis</p>
+                    )}
             </ul>
         </main>
     );
