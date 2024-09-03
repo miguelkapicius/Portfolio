@@ -1,11 +1,14 @@
-import { Resizeable } from "@/components/home/Resizeable";
 import { Button } from "@/components/ui/button";
-import { HandMetal, Linkedin, Mails, SeparatorVertical } from "lucide-react";
+import { HandMetal, Linkedin, Mails } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import Keyboard from '@/components/Keyboard';  // Add this import
 
 export function Home() {
+
     return (
-        <main className="flex overflow-y-hidden flex-col lg:flex-row items-center justify-around h-5/6 lg:h-4/6">
+        <main className="flex overflow-y-hidden flex-col lg:flex-row items-center justify-around gap-12 h-full lg:h-4/6">
             <section className="space-y-6">
                 <div className="space-y-4">
                     <h2 className=" text-2xl md:text-5xl font-semibold">
@@ -38,10 +41,16 @@ export function Home() {
                 </div>
             </section>
             <section className="flex flex-col items-center gap-2">
-                <Resizeable />
-                <span className="text-muted-foreground text-xs flex gap-2 items-center">
-                    Arraste para redimensionar <SeparatorVertical />
-                </span>
+                <div className="mt-6 p-4 rounded-lg">
+                    <Canvas style={{ width: '300px', height: '300px' }} camera={{ position: [0, 5, 5], fov: 50}}>
+                        <ambientLight intensity={2} />
+                        <spotLight position={[10, 10, 10]} angle={0.5} penumbra={1} />
+                        <pointLight position={[-10, -10, -10]} />
+                        <OrbitControls enableZoom={false} target={[0, 0, 0]} />
+                        <Keyboard />
+                    </Canvas>
+
+                </div>
             </section>
         </main>
     );

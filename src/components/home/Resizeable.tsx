@@ -18,7 +18,7 @@ export function Resizeable() {
                     <span className="font-semibold">Design</span>
                 </div>
             </ResizablePanel>
-            <ResizableHandle />
+            <ResizableHandle withHandle/>
             <ResizablePanel defaultSize={50}>
                 <ResizablePanelGroup direction="vertical">
                     <ResizablePanel
@@ -31,7 +31,7 @@ export function Resizeable() {
                             </span>
                         </div>
                     </ResizablePanel>
-                    <ResizableHandle />
+                    <ResizableHandle withHandle />
                     <ResizablePanel
                         className="bg-accent text-primary"
                         defaultSize={60}
