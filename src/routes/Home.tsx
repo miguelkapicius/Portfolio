@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export function Home() {
     return (
-        <main className="flex flex-col lg:flex-row items-center justify-around h-5/6 lg:h-4/6">
+        <main className="flex overflow-y-hidden flex-col lg:flex-row items-center justify-around h-5/6 lg:h-4/6">
             <section className="space-y-6">
                 <div className="space-y-4">
                     <h2 className=" text-2xl md:text-5xl font-semibold">
