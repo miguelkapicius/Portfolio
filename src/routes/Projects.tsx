@@ -13,6 +13,7 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { motion } from 'framer-motion';
 
 interface ProjectsProps {
     name: string;
@@ -89,15 +90,21 @@ export function Projects() {
                         .toLowerCase()
                         .includes(searchProject.toLowerCase())
                 )
-                .map((project) => (
-                    <ProjectCard
+                .map((project, index) => (
+                    <motion.div
                         key={project.name}
-                        name={project.name}
-                        desc={project.desc}
-                        stack={project.stack}
-                        deploy_url={project.deploy_url}
-                        github_url={project.github_url}
-                    />
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                        <ProjectCard
+                            name={project.name}
+                            desc={project.desc}
+                            stack={project.stack}
+                            deploy_url={project.deploy_url}
+                            github_url={project.github_url}
+                        />
+                    </motion.div>
                 ))}
         </main>
     );
@@ -111,44 +118,55 @@ export function ProjectCard({
     github_url,
 }: ProjectCardProps) {
     return (
-        <Card className="w-full flex gap-2">
-            <div className="space-y-2">
-                <CardHeader>
-                    <CardTitle className="text-xl">{name}</CardTitle>
-                    <CardDescription>{desc}.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <ul className="flex flex-wrap gap-2 items-center">
-                        {stack.map((tech) => (
-                            <li>
-                                <Badge variant="secondary">{tech}</Badge>
-                            </li>
-                        ))}
-                    </ul>
-                </CardContent>
-                <CardFooter className="flex flex-wrap gap-4">
-                    <Button>
-                        <Link
-                            target="_blank"
-                            className="flex gap-2 items-center"
-                            to={deploy_url}
-                        >
-                            Conhecer projeto <ArrowUpRight className="size-4" />
-                        </Link>
-                    </Button>
-                    {github_url && (
-                        <Button variant="outline">
+        <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+            <Card className="w-full flex gap-2">
+                <div className="space-y-2">
+                    <CardHeader>
+                        <CardTitle className="text-xl">{name}</CardTitle>
+                        <CardDescription>{desc}.</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <ul className="flex flex-wrap gap-2 items-center">
+                            {stack.map((tech) => (
+                                <motion.li
+                                    key={tech}
+                                    initial={{ opacity: 0, scale: 0.5 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    <Badge variant="secondary">{tech}</Badge>
+                                </motion.li>
+                            ))}
+                        </ul>
+                    </CardContent>
+                    <CardFooter className="flex flex-wrap gap-4">
+                        <Button>
                             <Link
                                 target="_blank"
                                 className="flex gap-2 items-center"
-                                to={github_url}
+                                to={deploy_url}
                             >
-                                <Github className="size-4" /> GitHub
+                                Conhecer projeto <ArrowUpRight className="size-4" />
                             </Link>
                         </Button>
-                    )}
-                </CardFooter>
-            </div>
-        </Card>
+                        {github_url && (
+                            <Button variant="outline">
+                                <Link
+                                    target="_blank"
+                                    className="flex gap-2 items-center"
+                                    to={github_url}
+                                >
+                                    <Github className="size-4" /> GitHub
+                                </Link>
+                            </Button>
+                        )}
+                    </CardFooter>
+                </div>
+            </Card>
+        </motion.div>
     );
 }

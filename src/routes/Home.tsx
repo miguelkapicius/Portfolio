@@ -4,24 +4,60 @@ import { Link } from "react-router-dom";
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import Keyboard from '@/components/Keyboard';  // Add this import
+import { motion } from 'framer-motion';
 
 export function Home() {
 
     return (
-        <main className="flex overflow-y-hidden flex-col lg:flex-row items-center justify-around gap-12 h-full lg:h-4/6">
+        <main className="flex overflow-y-hidden flex-col lg:flex-row items-center justify-around gap-12 h-max md:h-4/6">
             <section className="space-y-6">
                 <div className="space-y-4">
-                    <h2 className=" text-2xl md:text-5xl font-semibold">
-                        Olá, eu sou{" "}
-                        <strong className="text-popover-foreground">
+                    <motion.h2
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-2xl md:text-5xl font-semibold"
+                    >
+                        <motion.span
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.5, duration: 0.5 }}
+                        >
+                            Olá, eu sou{" "}
+                        </motion.span>
+                        <motion.strong
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 1, duration: 0.5 }}
+                            className="text-popover-foreground"
+                        >
                             Miguel
-                        </strong>{" "}
-                        <HandMetal className="inline" /> <br /> Dev Front-end
-                    </h2>
-                    <p className="max-w-lg text-base md:text-xl text-muted-foreground">
+                        </motion.strong>{" "}
+                        <motion.span
+                            initial={{ opacity: 0, rotate: -90 }}
+                            animate={{ opacity: 1, rotate: 0 }}
+                            transition={{ delay: 1.5, duration: 0.5 }}
+                        >
+                            <HandMetal className="inline" />
+                        </motion.span>
+                        <br />
+                        <motion.span
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 2, duration: 0.5 }}
+                        >
+                            Dev Front-end
+                        </motion.span>
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 2.5, duration: 0.5 }}
+                        className="max-w-lg text-base md:text-xl text-muted-foreground"
+                    >
                         Transformo ideias em interfaces, conectando design,
                         acessibilidade e usabilidade em cada linha de código.
-                    </p>
+                    </motion.p>
                 </div>
                 <div className="flex items-center gap-4 max-w-lg">
                     <Button className="flex items-center gap-2 w-full" asChild>
@@ -40,7 +76,7 @@ export function Home() {
                     </Button>
                 </div>
             </section>
-            <section className="flex flex-col items-center gap-2">
+            <section className="hidden md:flex flex-col items-center gap-2">
                 <div className="mt-6 p-4 rounded-lg">
                     <Canvas style={{ width: '300px', height: '300px' }} camera={{ position: [0, 5, 5], fov: 50}}>
                         <ambientLight intensity={2} />
@@ -49,7 +85,6 @@ export function Home() {
                         <OrbitControls enableZoom={false} target={[0, 0, 0]} />
                         <Keyboard />
                     </Canvas>
-
                 </div>
             </section>
         </main>
