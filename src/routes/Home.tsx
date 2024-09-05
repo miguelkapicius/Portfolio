@@ -1,9 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { HandMetal, Linkedin, Mails } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import Keyboard from '@/components/Keyboard';  // Add this import
 import { motion } from 'framer-motion';
 
 export function Home() {
@@ -74,17 +71,6 @@ export function Home() {
                             <span>Mensagem</span> <Mails className="size-4" />
                         </Link>
                     </Button>
-                </div>
-            </section>
-            <section className="hidden md:flex flex-col items-center gap-2">
-                <div className="mt-6 p-4 rounded-lg">
-                    <Canvas style={{ width: '300px', height: '300px' }} camera={{ position: [0, 5, 5], fov: 50}}>
-                        <ambientLight intensity={2} />
-                        <spotLight position={[10, 10, 10]} angle={0.5} penumbra={1} />
-                        <pointLight position={[-10, -10, -10]} />
-                        <OrbitControls enableZoom={false} target={[0, 0, 0]} />
-                        <Keyboard />
-                    </Canvas>
                 </div>
             </section>
         </main>
